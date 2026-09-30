@@ -3,50 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CompraClick — Descubre. Elige. Compra.</title>
+<title>CompraClick</title>
 <style>
-:root{--blue:#0b2d4d;--accent:#ff5a36;--light:#f5f7fa;--text:#17212b;--muted:#667381}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:#fff}
-header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #e8edf2}.top{max-width:1180px;margin:auto;padding:16px 20px;display:flex;align-items:center;gap:24px}
-.logo{font-size:25px;font-weight:900;color:var(--blue);letter-spacing:-1px}.logo span{color:var(--accent)}
-nav{display:flex;gap:18px;flex:1}nav a{color:var(--text);text-decoration:none;font-weight:650;font-size:14px}.actions{display:flex;gap:10px;align-items:center}
-.hero{background:linear-gradient(135deg,#0b2d4d,#164c78);color:white}.hero-in{max-width:1180px;margin:auto;padding:72px 20px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
-.hero h1{font-size:54px;line-height:1.02;margin:0 0 18px;letter-spacing:-2px}.hero p{font-size:19px;color:#dce8f2;max-width:600px}
-main{max-width:1180px;margin:auto;padding:42px 20px}.section-title{margin-bottom:18px}.section-title h2{margin:0;font-size:28px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{border:1px solid #e5e9ee;border-radius:15px;overflow:hidden;background:#fff;transition:.2s}.product:hover{transform:translateY(-3px);box-shadow:0 10px 25px #0b2d4d14}.pic{height:180px;background:#eef2f5;display:flex;align-items:center;justify-content:center;font-size:65px}.info{padding:15px}.tag{display:inline-block;background:#fff0ec;color:#d94422;border-radius:12px;padding:4px 8px;font-size:11px;font-weight:800}.product h3{font-size:15px;margin:10px 0 7px}.price{font-size:20px;font-weight:900;color:var(--blue)}.old{text-decoration:line-through;color:#929ca6;font-size:13px;margin-left:5px}
-.buy{display:block;text-align:center;width:100%;background:var(--blue);color:white;padding:10px;border-radius:8px;margin-top:12px;font-weight:750;text-decoration:none}
-footer{margin-top:50px;background:#0b1f32;color:#d7e2eb}.foot{max-width:1180px;margin:auto;padding:35px 20px;display:flex;justify-content:space-between;gap:30px}.foot strong{color:white}
-@media(max-width:800px){nav{display:none}.hero-in{grid-template-columns:1fr;padding:48px 20px}.hero h1{font-size:42px}.grid{grid-template-columns:repeat(1,1fr);max-width:320px;margin:auto}}
+:root{--blue:#0b2d4d;--accent:#ff5a36;--light:#f5f7fa;--text:#17212b}
+*{box-sizing:border-box}body{margin:0;font-family:sans-serif;color:var(--text);background:#fff}
+header{background:#fff;border-bottom:1px solid #e8edf2;padding:16px 20px;font-size:22px;font-weight:900;color:var(--blue)}
+main{max-width:600px;margin:40px auto;padding:0 20px;text-align:center}
+.product-box{border:1px solid #e5e9ee;border-radius:15px;padding:25px;background:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.05)}
+.pic{font-size:60px;margin-bottom:15px}
+h3{font-size:20px;margin:10px 0}
+.price{font-size:24px;font-weight:900;color:var(--blue);margin:15px 0}
+.buy{display:block;background:var(--accent);color:white;padding:14px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:15px}
 </style>
 </head>
 <body>
-<header><div class="top">
-<div class="logo">Compra<span>Click</span></div>
-<nav><a href="#">Inicio</a><a href="#producto">Producto Exclusivo</a></nav>
-</div></header>
 
-<section class="hero"><div class="hero-in">
-<div><h1>Tu producto ideal al mejor precio.</h1><p>Seleccionado expresamente para ti con envío garantizado.</p></div>
-<div class="hero-card" style="background:#fff;color:#17212b;border-radius:20px;padding:25px;text-align:center;"><div style="font-size:50px">📦</div><h2>Pedido Directo</h2><p>Compra rápida y segura mediante PayPal.</p></div>
-</div></section>
+<header>Compra<span>Click</span></header>
 
 <main>
-<section id="producto"><div class="section-title"><h2>🔥 Producto Destacado</h2></div>
-<div class="grid">
-<div class="product">
-<div class="pic">✨</div>
-<div class="info">
-<span class="tag">OFERTA</span>
-<h3 id="nombre-producto">Nombre de tu producto aquí</h3>
-<div><span class="price" id="precio-producto">0,00 €</span></div>
-<!-- Enlace de PayPal.me configurado -->
-<a class="buy" href="https://paypal.me/tu_usuario/PRECIO" target="_blank">Comprar ahora</a>
-</div>
-</div>
-</div>
-</section>
+  <div class="product-box">
+    <div class="pic">📦</div>
+    <h3 id="nombre">Cargando producto...</h3>
+    <div class="price" id="precio">0,00 €</div>
+    <a id="enlace-compra" class="buy" href="#" target="_blank">Comprar ahora</a>
+  </div>
 </main>
 
-<footer><div class="foot"><div><div class="logo" style="color:white">Compra<span>Click</span></div><p>Intermediación y envíos directos.</p></div><div><strong>Información</strong><p>Contacto · Privacidad · Condiciones</p></div></div></footer>
 </body>
 </html>
