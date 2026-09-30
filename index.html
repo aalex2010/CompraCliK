@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CompraClick — Descubre. Elige. Compra.</title>
+<style>
+:root{--blue:#0b2d4d;--accent:#ff5a36;--light:#f5f7fa;--text:#17212b;--muted:#667381}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:#fff}
+header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #e8edf2}.top{max-width:1180px;margin:auto;padding:16px 20px;display:flex;align-items:center;gap:24px}
+.logo{font-size:25px;font-weight:900;color:var(--blue);letter-spacing:-1px}.logo span{color:var(--accent)}
+nav{display:flex;gap:18px;flex:1}nav a{color:var(--text);text-decoration:none;font-weight:650;font-size:14px}.actions{display:flex;gap:10px;align-items:center}
+.search{border:1px solid #dbe2e8;border-radius:22px;padding:10px 14px;width:210px}.cart{border:0;background:var(--blue);color:#fff;border-radius:20px;padding:10px 15px;font-weight:700;cursor:pointer}
+.hero{background:linear-gradient(135deg,#0b2d4d,#164c78);color:white}.hero-in{max-width:1180px;margin:auto;padding:72px 20px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.hero h1{font-size:54px;line-height:1.02;margin:0 0 18px;letter-spacing:-2px}.hero p{font-size:19px;color:#dce8f2;max-width:600px}.btn{display:inline-block;background:var(--accent);color:white;text-decoration:none;padding:14px 22px;border-radius:9px;font-weight:800;margin-top:12px}
+.hero-card{background:#fff;color:var(--text);border-radius:20px;padding:25px;box-shadow:0 20px 50px #0004}.hero-card .big{font-size:70px;text-align:center}
+main{max-width:1180px;margin:auto;padding:42px 20px}.section-title{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.section-title h2{margin:0;font-size:28px}.section-title span{color:var(--muted);font-size:14px}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:48px}.cat{padding:25px;border-radius:16px;background:var(--light);font-weight:800;text-decoration:none;color:var(--blue);font-size:18px}.cat small{display:block;color:var(--muted);font-weight:500;margin-top:5px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{border:1px solid #e5e9ee;border-radius:15px;overflow:hidden;background:#fff;transition:.2s}.product:hover{transform:translateY(-3px);box-shadow:0 10px 25px #0b2d4d14}.pic{height:180px;background:#eef2f5;display:flex;align-items:center;justify-content:center;font-size:65px}.info{padding:15px}.tag{display:inline-block;background:#fff0ec;color:#d94422;border-radius:12px;padding:4px 8px;font-size:11px;font-weight:800}.product h3{font-size:15px;margin:10px 0 7px}.price{font-size:20px;font-weight:900;color:var(--blue)}.old{text-decoration:line-through;color:#929ca6;font-size:13px;margin-left:5px}.buy{width:100%;border:0;background:var(--blue);color:white;padding:10px;border-radius:8px;margin-top:12px;font-weight:750;cursor:pointer}
+footer{margin-top:50px;background:#0b1f32;color:#d7e2eb}.foot{max-width:1180px;margin:auto;padding:35px 20px;display:flex;justify-content:space-between;gap:30px}.foot strong{color:white}.notice{background:#fff7e9;color:#6f4b12;padding:12px 15px;border-radius:10px;font-size:13px;margin:25px 0}
+@media(max-width:800px){nav{display:none}.search{width:130px}.hero-in{grid-template-columns:1fr;padding:48px 20px}.hero h1{font-size:42px}.categories{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.pic{height:145px}.foot{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="top">
+<div class="logo">Compra<span>Click</span></div>
+<nav><a href="#">Inicio</a><a href="#coche">Coche</a><a href="#trending">Trending</a><a href="#tecnologia">Tecnología</a><a href="#hogar">Hogar</a><a href="#ofertas">Ofertas</a></nav>
+<input id="search" class="search" placeholder="Buscar productos..." oninput="filterProducts()">
+<button class="cart" onclick="showCart()">🛒 <span id="count">0</span></button>
+</div></header>
+
+<section class="hero"><div class="hero-in">
+<div><h1>Descubre. Elige. Compra.</h1><p>Productos útiles, accesorios para tu coche y artículos que están en tendencia. Todo en un solo lugar.</p><a class="btn" href="#trending">Ver productos</a></div>
+<div class="hero-card"><div class="big">🛍️</div><h2>Compra fácil y rápido</h2><p>Esta es la primera versión de CompraClick. Los productos mostrados son demostraciones.</p></div>
+</div></section>
+
+<main>
+<div class="notice">ℹ️ <b>Versión inicial:</b> catálogo y carrito funcionando. Los pagos y los pedidos reales se conectarán en el siguiente paso.</div>
+<section><div class="section-title"><h2>Compra por categoría</h2><span>Encuentra lo que buscas</span></div>
+<div class="categories">
+<a class="cat" href="#coche">🚗 Coche<small>Accesorios y gadgets</small></a>
+<a class="cat" href="#trending">🔥 Trending<small>Lo que está de moda</small></a>
+<a class="cat" href="#tecnologia">📱 Tecnología<small>Gadgets útiles</small></a>
+<a class="cat" href="#hogar">🏠 Hogar<small>Para el día a día</small></a>
+</div></section>
+
+<section id="trending"><div class="section-title"><h2>🔥 Trending ahora</h2><span>Productos de demostración</span></div>
+<div class="grid" id="products">
+<div class="product" data-name="Soporte magnético para móvil de coche" data-cat="coche"><div class="pic">📱</div><div class="info"><span class="tag">TRENDING</span><h3>Soporte magnético para móvil de coche</h3><div><span class="price">14,99 €</span><span class="old">24,99 €</span></div><button class="buy" onclick="add('Soporte magnético para móvil',14.99)">Añadir al carrito</button></div></div>
+<div class="product" data-name="Luz LED ambiente coche" data-cat="coche"><div class="pic">💡</div><div class="info"><span class="tag">TOP</span><h3>Luz LED ambiente para coche</h3><div><span class="price">18,99 €</span><span class="old">29,99 €</span></div><button class="buy" onclick="add('Luz LED ambiente coche',18.99)">Añadir al carrito</button></div></div>
+<div class="product" data-name="Organizador multifunción" data-cat="hogar"><div class="pic">🧰</div><div class="info"><span class="tag">NOVEDAD</span><h3>Organizador multifunción</h3><div><span class="price">12,99 €</span><span class="old">19,99 €</span></div><button class="buy" onclick="add('Organizador multifunción',12.99)">Añadir al carrito</button></div></div>
+<div class="product" data-name="Mini aspirador portátil" data-cat="tecnologia"><div class="pic">🌀</div><div class="info"><span class="tag">VIRAL</span><h3>Mini aspirador portátil USB</h3><div><span class="price">21,99 €</span><span class="old">34,99 €</span></div><button class="buy" onclick="add('Mini aspirador portátil USB',21.99)">Añadir al carrito</button></div></div>
+</div></section>
+
+<section id="coche" style="margin-top:48px"><div class="section-title"><h2>🚗 Accesorios para coche</h2></div>
+<div class="grid">
+<div class="product"><div class="pic">🧽</div><div class="info"><span class="tag">COCHE</span><h3>Kit de limpieza interior</h3><div class="price">16,99 €</div><button class="buy" onclick="add('Kit de limpieza interior',16.99)">Añadir al carrito</button></div></div>
+<div class="product"><div class="pic">🧲</div><div class="info"><span class="tag">COCHE</span><h3>Soporte universal para móvil</h3><div class="price">11,99 €</div><button class="buy" onclick="add('Soporte universal para móvil',11.99)">Añadir al carrito</button></div></div>
+<div class="product"><div class="pic">✨</div><div class="info"><span class="tag">COCHE</span><h3>Tiras LED interiores</h3><div class="price">19,99 €</div><button class="buy" onclick="add('Tiras LED interiores',19.99)">Añadir al carrito</button></div></div>
+<div class="product"><div class="pic">🧹</div><div class="info"><span class="tag">COCHE</span><h3>Cepillo para limpieza de salpicadero</h3><div class="price">9,99 €</div><button class="buy" onclick="add('Cepillo salpicadero',9.99)">Añadir al carrito</button></div></div>
+</div></section>
+</main>
+
+<footer><div class="foot"><div><div class="logo" style="color:white">Compra<span>Click</span></div><p>Productos que descubres y compras fácilmente.</p></div><div><strong>Información</strong><p>Contacto · Privacidad · Condiciones · Devoluciones</p></div></div></footer>
+
+<script>
+let cart=[];
+function add(name,price){cart.push({name,price});document.getElementById('count').textContent=cart.length;alert('Añadido al carrito: '+name)}
+function showCart(){if(!cart.length)return alert('Tu carrito está vacío.');let total=cart.reduce((s,p)=>s+p.price,0);alert('Carrito\\n\\n'+cart.map(p=>p.name+' — '+p.price.toFixed(2)+' €').join('\\n')+'\\n\\nTotal: '+total.toFixed(2)+' €')}
+function filterProducts(){let q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('.product').forEach(p=>p.style.display=p.dataset.name?.toLowerCase().includes(q)||!q?'':'none')}
+</script>
+</body>
+</html>
